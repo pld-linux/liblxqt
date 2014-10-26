@@ -10,8 +10,8 @@ Version:	0.8.0
 Release:	0.2
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://lxqt.org/downloads/lxqt/0.8.0/%{name}-%{version}.tar.xz
-# Source0-md5:	67512eae6af364e8b53777dc14e800fd
+Source0:	http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	7159035b93fc585b173f41c96b44a523
 URL:		http://www.lxqt.org/
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	Qt5Core-devel >= %{qtver}
