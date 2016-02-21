@@ -58,6 +58,7 @@ pisaniu własnych programów wykorzystujących lxqt.
 install -d build
 cd build
 %cmake \
+	-DLXQT_ETC_XDG_DIR=/etc/xdg \
     ../
 
 %{__make}
