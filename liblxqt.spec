@@ -6,12 +6,12 @@
 Summary:	lxqt - libraries
 Summary(pl.UTF-8):	lxqt - biblioteki
 Name:		liblxqt
-Version:	0.10.0
+Version:	0.11.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://downloads.lxqt.org/lxqt/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	3856e2e690612c5564dc52f5b570a438
+# Source0-md5:	69112c9f058493f56fe9a96f6e61ce71
 Patch0:		lxqt_share_dir.patch
 URL:		http://www.lxqt.org/
 BuildRequires:	qt5-build >= %{qtver}
@@ -25,7 +25,7 @@ BuildRequires:	Qt5X11Extras-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.3
 BuildRequires:	kf5-kwindowsystem-devel
-BuildRequires:	libqtxdg-devel >= 1.0.0
+BuildRequires:	libqtxdg-devel >= 2.0.0
 BuildRequires:	xz-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -52,13 +52,14 @@ pisaniu własnych programów wykorzystujących lxqt.
 
 %prep
 %setup -q
-%patch0 -p1
+#%%patch0 -p1
 
 %build
 install -d build
 cd build
 %cmake \
 	-DLXQT_ETC_XDG_DIR=/etc/xdg \
+	-DPULL_TRANSLATIONS=OFF \
     ../
 
 %{__make}
@@ -69,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name} --with-qm
+#%%find_lang %{name} --with-qm
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -77,11 +78,11 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
-%dir %{_datadir}/lxqt
-%dir %{_datadir}/lxqt/translations
-%dir %{_datadir}/lxqt/translations/liblxqt
+#%dir %{_datadir}/lxqt
+#%dir %{_datadir}/lxqt/translations
+#%dir %{_datadir}/lxqt/translations/liblxqt
 %attr(755,root,root) %{_libdir}/liblxqt.so.*.*.*
 %ghost %{_libdir}/liblxqt.so.0
 
