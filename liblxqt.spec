@@ -6,20 +6,20 @@
 Summary:	Core shared library for LXQt desktop suite
 Summary(pl.UTF-8):	Podstawowa biblioteka współdzielona dla LXQt Desktop Suite
 Name:		liblxqt
-Version:	2.3.0
+Version:	2.4.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	https://github.com/lxqt/liblxqt/releases/download/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	362e9bb1202801ca4fb43e571b088a0a
+# Source0-md5:	daa81b9deda0ac4c37ab3ec914bae82b
 URL:		http://www.lxqt.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
 BuildRequires:	Qt6Widgets-devel >= %{qtver}
 BuildRequires:	cmake >= 3.18.0
 BuildRequires:	kf6-kwindowsystem-devel >= 6.0.0
-BuildRequires:	libqtxdg-devel >= 4.3.0
-BuildRequires:	lxqt-build-tools >= 2.3.0
+BuildRequires:	libqtxdg-devel >= 4.4.0
+BuildRequires:	lxqt-build-tools >= 2.4.0
 BuildRequires:	polkit-qt6-1-devel
 BuildRequires:	qt6-linguist >= %{qtver}
 BuildRequires:	xorg-lib-libX11-devel
